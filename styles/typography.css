@@ -1,0 +1,20 @@
+@layer base {
+    @font-face {
+        font-family: 'Amiri';
+        src: url('/fonts/Amiri-Bold.ttf');
+    }
+
+    @font-face {
+        font-family: 'KFGQPC Uthman Taha Naskh';
+        src: url('/fonts/KFGQPC-Uthman-Taha-Naskh-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Tharujamaanu';
+        src: url('/fonts/merged-300.woff2');
+    }
+
+    :lang(dv-MV) {
+        font-family: 'Tharujamaanu';
+    }
+}

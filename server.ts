@@ -10,6 +10,10 @@ Deno.serve((req) => {
     return serveDir(req, { fsRoot: "styles" })
   }
 
+  if (pathname.endsWith('.woff2') || pathname.endsWith('.ttf')) {
+    return serveDir(req, { fsRoot: "public" })
+  }
+
   return new Response(HTML, {
     headers: {
       "content-type": "text/html"
