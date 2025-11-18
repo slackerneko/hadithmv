@@ -2,3 +2,101 @@
 
 @import 'colors.css';
 @import 'typography.css';
+
+:root {
+    color-scheme: light dark;
+
+    --gray-1: var(--_gray-1);
+    --gray-2: var(--_gray-2);
+    --gray-3: var(--_gray-3);
+    --gray-4: var(--_gray-4);
+    --gray-5: var(--_gray-5);
+    --gray-6: var(--_gray-6);
+    --gray-7: var(--_gray-7);
+    --gray-8: var(--_gray-8);
+    --gray-9: var(--_gray-9);
+    --gray-10: var(--_gray-10);
+    --gray-11: var(--_gray-11);
+    --gray-12: var(--_gray-12);
+
+    --color-1: var(--_green-1);
+    --color-2: var(--_green-2);
+    --color-3: var(--_green-3);
+    --color-4: var(--_green-4);
+    --color-5: var(--_green-5);
+    --color-6: var(--_green-6);
+    --color-7: var(--_green-7);
+    --color-8: var(--_green-8);
+    --color-9: var(--_green-9);
+    --color-10: var(--_green-10);
+    --color-11: var(--_green-11);
+    --color-12: var(--_green-12);
+
+    --text-1-light: var(--gray-10);
+    --text-2-light: var(--gray-8);
+
+    --surface-1-light: var(--gray-0);
+    --surface-2-light: var(--gray-1);
+    --surface-3-light: var(--gray-2);
+    --surface-4-light: var(--gray-3);
+
+    --text-1-dark: var(--gray-4);
+    --text-2-dark: var(--gray-6);
+
+    --surface-1-dark: var(--gray-0);
+    --surface-2-dark: var(--gray-1);
+    --surface-3-dark: var(--gray-2);
+    --surface-4-dark: var(--gray-3);
+
+    --text-1: light-dark(var(--text-1-light), var(--text-1-dark));
+    --text-2: light-dark(var(--text-2-light), var(--text-2-dark));
+}
+
+body {
+    color:  var(--text-1);
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: clamp(100%, 35vw, 280px) 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer"
+    ;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    background-color: light-dark(var(--gray-1), var(--gray-11));
+}
+
+#sidebar {
+    grid-area: sidebar;
+    ul {
+        li {
+            :hover {
+                background-color: light-dark(var(--color-1), var(--color-12));
+            }
+            a {
+                display: block;
+                color: var(--color-10);
+                text-decoration: none;
+                font-size: var(--font-size-3);
+
+                :not([lang='ar']) {
+                    color: var(--text-2);
+                }
+            }
+        }
+    }
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
