@@ -5,9 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="google" content="notranslate">
 	<title>ޙަދީޘްއެމްވީ</title>
-	<link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="home-layout.css">
+	<link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("serviceworker.js");
+      }
+    </script>
 </head>
 <body>
     <header>
