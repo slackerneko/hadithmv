@@ -1,8 +1,5 @@
 @layer base, utilities;
 
-@import 'colors.css';
-@import 'typography.css';
-
 :root {
     color-scheme: light dark;
 

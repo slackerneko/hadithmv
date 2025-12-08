@@ -1,5 +1,50 @@
-@layer base {
+@layer tokens {
     :root {
+        /************************************
+         *            TYPOGRAPHY            *
+         ************************************/
+
+        --font-size-00: .5rem;
+        --font-size-0: .75rem;
+        --font-size-1: 1rem;
+        --font-size-2: 1.1rem;
+        --font-size-3: 1.25rem;
+        --font-size-4: 1.5rem;
+        --font-size-5: 2rem;
+        --font-size-6: 2.5rem;
+        --font-size-7: 3rem;
+        --font-size-8: 3.5rem;
+
+        --font-line-height-00: .95;
+        --font-line-height-0: 1.1;
+        --font-line-height-1: 1.25;
+        --font-line-height-2: 1.375;
+        --font-line-height-3: 1.5;
+        --font-line-height-4: 1.75;
+        --font-line-height-5: 2;
+
+        --font-letterspacing-0: -.05em;
+        --font-letterspacing-1: .025em;
+        --font-letterspacing-2: .050em;
+        --font-letterspacing-3: .075em;
+        --font-letterspacing-4: .150em;
+        --font-letterspacing-5: .500em;
+        --font-letterspacing-6: .750em;
+        --font-letterspacing-7: 1em;
+
+        /************************************
+         *               SIZES              *
+         ************************************/
+
+        /* content sizes */
+        --size-header-1: 20ch;
+        --size-header-2: 25ch;
+        --size-header-3: 35ch;
+
+        --size-content-1: 20ch;
+        --size-content-2: 45ch;
+        --size-content-3: 60ch;
+
         /* relative sizes */
         --size-1: .25rem;
         --size-2: .5rem;
@@ -45,7 +90,5 @@
         --size-fluid-8: clamp(10rem, 20vw, 15rem);
         --size-fluid-9: clamp(15rem, 30vw, 20rem);
         --size-fluid-10: clamp(20rem, 40vw, 30rem);
-
-
     }
 }
