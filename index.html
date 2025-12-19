@@ -6,12 +6,11 @@
 	<meta name="google" content="notranslate">
 	<link rel="stylesheet" href="styles/reset.css">
 	<link rel="stylesheet" href="styles/base.css">
-	<link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/main.css">
     <title>ޙަދީޘްއެމްވީ</title>
-    <script>
+    <script type="module">
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register("serviceworker.js");
+        navigator.serviceWorker.register(new URL('serviceworker.js', import.meta.url));
       }
     </script>
 </head>
@@ -19,14 +18,56 @@
     <header>
         <h1>بِسمِ اللهِ الرَّحمَنِ الرَّحِيمِ</h1>
     </header>
-    <nav id="sidebar">
-        <ul>
-            <li>
-                <a href="#">
-                    <div lang="ar" class="script-font">القرآن والتفسير</div>
-                    <div>ގުރްއާނާއި ތަފްސީރު</div>
-                </a>
-            </li>
+    <main id="homepage">
+        <h2 id="quran-tafseer" class="homepage__headings">
+            <div lang="ar" class="script-font">القرآن والتفسير</div>
+            <div>ގުރްއާނާއި ތަފްސީރު</div>
+        </h2>
+        <nav>
+            <details class="nav-links">
+                <summary data-nav>ޙަދީޘްއެމްވީގެ ތަރުޖަމާ</summary>
+                details here
+            </details>
+
+            <details class="nav-links">
+                <summary data-nav>ރަސްމީ ތަރުޖަމާ</summary>
+                details here
+            </details>
+
+            <details class="nav-links">
+                <summary data-nav>ބަކުރުބެގެ ތަރުޖަމާ</summary>
+                details here
+            </details>
+
+            <details class="nav-links">
+                <summary data-nav>ޖަޢުފަރުގެ ގުރްއާން ތަފްސީރު</summary>
+                details here
+            </details>
+        </nav>
+
+        <h2 id="hadith-athaar" class="homepage__headings">
+            <div lang="ar" class="script-font">الحديث والأثر</div>
+            <div>ޙަދީޘާއި އަޘަރު</div>
+        </h2>
+        <nav>
+            <details class="nav-links">
+                <summary data-nav>އެއްކުރަމުންދާ ޙަދީޘާއި އަޘަރު</summary>
+                details here
+            </details>
+
+            <details class="nav-links">
+                <summary data-nav>މުވައްޠައު މާލިކު</summary>
+                details here
+            </details>
+
+            <details class="nav-links">
+                <summary data-nav>ޢުމްދަތުލް އަޙްކާމް</summary>
+                details here
+            </details>
+        </nav>
+
+        <!--<ul>
+
             <li>
                 <a href="#">
                     <div lang="ar" class="script-font">الحديث والأثر</div>
@@ -39,10 +80,7 @@
                     <div>އަގީދާއާއި މަންހަޖު</div>
                 </a>
             </li>
-        </ul>
-    </nav>
-    <main>
-        hello world
+        </ul>-->
     </main>
 </body>
 </html>

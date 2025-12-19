@@ -1,24 +1,25 @@
 @layer base {
+
+    /************************************
+     *               FONTS              *
+     ************************************/
+
+    @font-face {
+        font-family: 'Amiri';
+        src: url('../public/fonts/Amiri-Bold.ttf');
+    }
+
+    @font-face {
+        font-family: 'KFGQPC Uthman Taha Naskh';
+        src: url('../public/fonts/KFGQPC-Uthman-Taha-Naskh-Regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'Tharujamaanu';
+        src: url('../public/fonts/merged-300.woff2');
+    }
+
     :root {
-        /************************************
-         *               FONTS              *
-         ************************************/
-
-        @font-face {
-            font-family: 'Amiri';
-            src: url('/fonts/Amiri-Bold.ttf');
-        }
-
-        @font-face {
-            font-family: 'KFGQPC Uthman Taha Naskh';
-            src: url('/fonts/KFGQPC-Uthman-Taha-Naskh-Regular.ttf');
-        }
-
-        @font-face {
-            font-family: 'Tharujamaanu';
-            src: url('/fonts/merged-300.woff2');
-        }
-
         :lang(dv-MV) {
             font-family: 'Tharujamaanu';
         }
@@ -27,7 +28,7 @@
             font-family: 'KFGQPC Uthman Taha Naskh';
         }
 
-        [lang=ar], .script-font {
+        .script-font {
             font-family: 'Amiri';
         }
 
@@ -35,256 +36,293 @@
          *               COLORS             *
          ************************************/
 
-        --_gray-0: #f8fafb;
-        --_gray-1: #f2f4f6;
-        --_gray-2: #ebedef;
-        --_gray-3: #e0e4e5;
-        --_gray-4: #d1d6d8;
-        --_gray-5: #b1b6b9;
-        --_gray-6: #979b9d;
-        --_gray-7: #7e8282;
-        --_gray-8: #666968;
-        --_gray-9: #50514f;
-        --_gray-10: #3a3a37;
-        --_gray-11: #252521;
-        --_gray-12: #121210;
+         /*
+         Text
+         Gray 7 or Gray 8 is recommended for body text. The soft color of Gray 7 naturally matches with a background. Therefore it is appropriate for a UI element with concrete function such as menu labels or buttons. If a content itself is emphasized as in content or headline, Gray 8 can make a clearly readable text.
 
-        --_red-0: #fff5f5;
-        --_red-1: #ffe3e3;
-        --_red-2: #ffc9c9;
-        --_red-3: #ffa8a8;
-        --_red-4: #ff8787;
-        --_red-5: #ff6b6b;
-        --_red-6: #fa5252;
-        --_red-7: #f03e3e;
-        --_red-8: #e03131;
-        --_red-9: #c92a2a;
-        --_red-10: #b02525;
-        --_red-11: #962020;
-        --_red-12: #7d1a1a;
+         Background
+         Generally background is in white, but if you want to switch modes or separate spaces, light gray such as Gray 0 or Gray 1 can be chosen. Gray 1 can seem a bit old-fashioned, but it is affordable for low-end devices and users who don’t have clear eyesight.When separating spaces with color over Gray 0 background, Gray 1 is useful.
 
-        --_pink-0: #fff0f6;
-        --_pink-1: #ffdeeb;
-        --_pink-2: #fcc2d7;
-        --_pink-3: #faa2c1;
-        --_pink-4: #f783ac;
-        --_pink-5: #f06595;
-        --_pink-6: #e64980;
-        --_pink-7: #d6336c;
-        --_pink-8: #c2255c;
-        --_pink-9: #a61e4d;
-        --_pink-10: #8c1941;
-        --_pink-11: #731536;
-        --_pink-12: #59102a;
+         You can use darker background color to represent status change such as active, hover for elements like buttons. In this case, 2 levels darker than normal buttons are suggested.
 
-        --_purple-0: #f8f0fc;
-        --_purple-1: #f3d9fa;
-        --_purple-2: #eebefa;
-        --_purple-3: #e599f7;
-        --_purple-4: #da77f2;
-        --_purple-5: #cc5de8;
-        --_purple-6: #be4bdb;
-        --_purple-7: #ae3ec9;
-        --_purple-8: #9c36b5;
-        --_purple-9: #862e9c;
-        --_purple-10: #702682;
-        --_purple-11: #5a1e69;
-        --_purple-12: #44174f;
+         Stroke
+         Stroke elements use Gray 3 and Gray 4. Gray 3 is affordable for strokes which divide compartments such as <hr>. Gray 4 is appropriate for strokes implying boundary of forms or buttons can be operated.
 
-        --_violet-0: #f3f0ff;
-        --_violet-1: #e5dbff;
-        --_violet-2: #d0bfff;
-        --_violet-3: #b197fc;
-        --_violet-4: #9775fa;
-        --_violet-5: #845ef7;
-        --_violet-6: #7950f2;
-        --_violet-7: #7048e8;
-        --_violet-8: #6741d9;
-        --_violet-9: #5f3dc4;
-        --_violet-10: #5235ab;
-        --_violet-11: #462d91;
-        --_violet-12: #3a2578;
+         Use Gray 2 when hinting a disabled status.
 
-        --_indigo-0: #edf2ff;
-        --_indigo-1: #dbe4ff;
-        --_indigo-2: #bac8ff;
-        --_indigo-3: #91a7ff;
-        --_indigo-4: #748ffc;
-        --_indigo-5: #5c7cfa;
-        --_indigo-6: #4c6ef5;
-        --_indigo-7: #4263eb;
-        --_indigo-8: #3b5bdb;
-        --_indigo-9: #364fc7;
-        --_indigo-10: #2f44ad;
-        --_indigo-11: #283a94;
-        --_indigo-12: #21307a;
+         Dark Theme
+         The black background is often chosen along with the white text. At this point, the Gray 9 for background, Gray 7 for strokes and text can be in Gray 0, Gray 5, Gray 6.
+         */
 
-        --_blue-0: #e7f5ff;
-        --_blue-1: #d0ebff;
-        --_blue-2: #a5d8ff;
-        --_blue-3: #74c0fc;
-        --_blue-4: #4dabf7;
-        --_blue-5: #339af0;
-        --_blue-6: #228be6;
-        --_blue-7: #1c7ed6;
-        --_blue-8: #1971c2;
-        --_blue-9: #1864ab;
-        --_blue-10: #145591;
-        --_blue-11: #114678;
-        --_blue-12: #0d375e;
+        --_gray-0: #f8f9fa;
+        --_gray-1: #f1f3f5;
+        --_gray-2: #e9ecef;
+        --_gray-3: #dee2e6;
+        --_gray-4: #ced4da;
+        --_gray-5: #adb5bd;
+        --_gray-6: #868e96;
+        --_gray-7: #495057;
+        --_gray-8: #343a40;
+        --_gray-9: #212529;
 
-        --_cyan-0: #e3fafc;
-        --_cyan-1: #c5f6fa;
-        --_cyan-2: #99e9f2;
-        --_cyan-3: #66d9e8;
-        --_cyan-4: #3bc9db;
-        --_cyan-5: #22b8cf;
-        --_cyan-6: #15aabf;
-        --_cyan-7: #1098ad;
-        --_cyan-8: #0c8599;
-        --_cyan-9: #0b7285;
-        --_cyan-10: #095c6b;
-        --_cyan-11: #074652;
-        --_cyan-12: #053038;
+        /************************************
+         *            TYPOGRAPHY            *
+         ************************************/
 
-        --_teal-0: #e6fcf5;
-        --_teal-1: #c3fae8;
-        --_teal-2: #96f2d7;
-        --_teal-3: #63e6be;
-        --_teal-4: #38d9a9;
-        --_teal-5: #20c997;
-        --_teal-6: #12b886;
-        --_teal-7: #0ca678;
-        --_teal-8: #099268;
-        --_teal-9: #087f5b;
-        --_teal-10: #066649;
-        --_teal-11: #054d37;
-        --_teal-12: #033325;
+        --_font-size-00: .5rem;
+        --_font-size-0: .75rem;
+        --_font-size-1: 1rem;
+        --_font-size-2: 1.1rem;
+        --_font-size-3: 1.25rem;
+        --_font-size-4: 1.5rem;
+        --_font-size-5: 2rem;
+        --_font-size-6: 2.5rem;
+        --_font-size-7: 3rem;
+        --_font-size-8: 3.5rem;
 
-        --_green-0: #ebfbee;
-        --_green-1: #d3f9d8;
-        --_green-2: #b2f2bb;
-        --_green-3: #8ce99a;
-        --_green-4: #69db7c;
-        --_green-5: #51cf66;
-        --_green-6: #40c057;
-        --_green-7: #37b24d;
-        --_green-8: #2f9e44;
-        --_green-9: #2b8a3e;
-        --_green-10: #237032;
-        --_green-11: #1b5727;
-        --_green-12: #133d1b;
+        --_font-line-height-00: .95;
+        --_font-line-height-0: 1.1;
+        --_font-line-height-1: 1.25;
+        --_font-line-height-2: 1.375;
+        --_font-line-height-3: 1.5;
+        --_font-line-height-4: 1.75;
+        --_font-line-height-5: 2;
 
-        --_lime-0: #f4fce3;
-        --_lime-1: #e9fac8;
-        --_lime-2: #d8f5a2;
-        --_lime-3: #c0eb75;
-        --_lime-4: #a9e34b;
-        --_lime-5: #94d82d;
-        --_lime-6: #82c91e;
-        --_lime-7: #74b816;
-        --_lime-8: #66a80f;
-        --_lime-9: #5c940d;
-        --_lime-10: #4c7a0b;
-        --_lime-11: #3c6109;
-        --_lime-12: #2c4706;
+        --_font-letterspacing-0: -.05em;
+        --_font-letterspacing-1: .025em;
+        --_font-letterspacing-2: .050em;
+        --_font-letterspacing-3: .075em;
+        --_font-letterspacing-4: .150em;
+        --_font-letterspacing-5: .500em;
+        --_font-letterspacing-6: .750em;
+        --_font-letterspacing-7: 1em;
 
-        --_yellow-0: #fff9db;
-        --_yellow-1: #fff3bf;
-        --_yellow-2: #ffec99;
-        --_yellow-3: #ffe066;
-        --_yellow-4: #ffd43b;
-        --_yellow-5: #fcc419;
-        --_yellow-6: #fab005;
-        --_yellow-7: #f59f00;
-        --_yellow-8: #f08c00;
-        --_yellow-9: #e67700;
-        --_yellow-10: #b35c00;
-        --_yellow-11: #804200;
-        --_yellow-12: #663500;
+        /************************************
+         *               SIZES              *
+         ************************************/
 
-        --_orange-0: #fff4e6;
-        --_orange-1: #ffe8cc;
-        --_orange-2: #ffd8a8;
-        --_orange-3: #ffc078;
-        --_orange-4: #ffa94d;
-        --_orange-5: #ff922b;
-        --_orange-6: #fd7e14;
-        --_orange-7: #f76707;
-        --_orange-8: #e8590c;
-        --_orange-9: #d9480f;
-        --_orange-10: #bf400d;
-        --_orange-11: #99330b;
-        --_orange-12: #802b09;
+        /* content sizes */
+        --_size-header-1: 20ch;
+        --_size-header-2: 25ch;
+        --_size-header-3: 35ch;
 
-        --_choco-0: #fff8dc;
-        --_choco-1: #fce1bc;
-        --_choco-2: #f7ca9e;
-        --_choco-3: #f1b280;
-        --_choco-4: #e99b62;
-        --_choco-5: #df8545;
-        --_choco-6: #d46e25;
-        --_choco-7: #bd5f1b;
-        --_choco-8: #a45117;
-        --_choco-9: #8a4513;
-        --_choco-10: #703a13;
-        --_choco-11: #572f12;
-        --_choco-12: #3d210d;
+        --_size-content-1: 20ch;
+        --_size-content-2: 45ch;
+        --_size-content-3: 60ch;
 
-        --_brown-0: #faf4eb;
-        --_brown-1: #ede0d1;
-        --_brown-2: #e0cab7;
-        --_brown-3: #d3b79e;
-        --_brown-4: #c5a285;
-        --_brown-5: #b78f6d;
-        --_brown-6: #a87c56;
-        --_brown-7: #956b47;
-        --_brown-8: #825b3a;
-        --_brown-9: #6f4b2d;
-        --_brown-10:#5e3a21;
-        --_brown-11:#4e2b15;
-        --_brown-12: #422412;
+        /* relative sizes */
+        --_size-1: .25rem;
+        --_size-2: .5rem;
+        --_size-3: 1rem;
+        --_size-4: 1.25rem;
+        --_size-5: 1.5rem;
+        --_size-6: 1.75rem;
+        --_size-7: 2rem;
+        --_size-8: 3rem;
+        --_size-9: 4rem;
+        --_size-10: 5rem;
+        --_size-11: 7.5rem;
+        --_size-12: 10rem;
+        --_size-13: 15rem;
+        --_size-14: 20rem;
+        --_size-15: 30rem;
 
-        --_sand-0: #f8fafb;
-        --_sand-1: #e6e4dc;
-        --_sand-2: #d5cfbd;
-        --_sand-3: #c2b9a0;
-        --_sand-4: #aea58c;
-        --_sand-5: #9a9178;
-        --_sand-6: #867c65;
-        --_sand-7: #736a53;
-        --_sand-8: #5f5746;
-        --_sand-9: #4b4639;
-        --_sand-10:#38352d;
-        --_sand-11:#252521;
-        --_sand-12: #121210;
+        /* static sizes */
+        --_size-px-1: 4px;
+        --_size-px-2: 8px;
+        --_size-px-3: 16px;
+        --_size-px-4: 20px;
+        --_size-px-5: 24px;
+        --_size-px-6: 28px;
+        --_size-px-7: 32px;
+        --_size-px-8: 48px;
+        --_size-px-9: 64px;
+        --_size-px-10: 80px;
+        --_size-px-11: 120px;
+        --_size-px-12: 160px;
+        --_size-px-13: 240px;
+        --_size-px-14: 320px;
+        --_size-px-15: 480px;
 
-        --_camo-0: #f9fbe7;
-        --_camo-1: #e8ed9c;
-        --_camo-2: #d2df4e;
-        --_camo-3: #c2ce34;
-        --_camo-4: #b5bb2e;
-        --_camo-5: #a7a827;
-        --_camo-6: #999621;
-        --_camo-7: #8c851c;
-        --_camo-8: #7e7416;
-        --_camo-9: #6d6414;
-        --_camo-10: #5d5411;
-        --_camo-11: #4d460e;
-        --_camo-12: #36300a;
+        /* fluid sizes */
+        --_size-fluid-1: clamp(.5rem, 1vw, 1rem);
+        --_size-fluid-2: clamp(1rem, 2vw, 1.5rem);
+        --_size-fluid-3: clamp(1.5rem, 3vw, 2rem);
+        --_size-fluid-4: clamp(2rem, 4vw, 3rem);
+        --_size-fluid-5: clamp(4rem, 5vw, 5rem);
+        --_size-fluid-6: clamp(5rem, 7vw, 7.5rem);
+        --_size-fluid-7: clamp(7.5rem, 10vw, 10rem);
+        --_size-fluid-8: clamp(10rem, 20vw, 15rem);
+        --_size-fluid-9: clamp(15rem, 30vw, 20rem);
+        --_size-fluid-10: clamp(20rem, 40vw, 30rem);
 
-        --_jungle-0: #ecfeb0;
-        --_jungle-1: #def39a;
-        --_jungle-2: #d0e884;
-        --_jungle-3: #c2dd6e;
-        --_jungle-4: #b5d15b;
-        --_jungle-5: #a8c648;
-        --_jungle-6: #9bbb36;
-        --_jungle-7: #8fb024;
-        --_jungle-8: #84a513;
-        --_jungle-9: #7a9908;
-        --_jungle-10: #658006;
-        --_jungle-11: #516605;
-        --_jungle-12: #3d4d04;
+        /************************************
+        *           BORDER RADIUS           *
+        ************************************/
+
+        --_radius-1: 2px;
+        --_radius-2: 5px;
+        --_radius-3: 1rem;
+        --_radius-4: 2rem;
+        --_radius-5: 4rem;
+        --_radius-6: 8rem;
+
+        /************************************
+        *              EASING               *
+        ************************************/
+
+        --_ease-1: cubic-bezier(.25, 0, .5, 1);
+        --_ease-2: cubic-bezier(.25, 0, .4, 1);
+        --_ease-3: cubic-bezier(.25, 0, .3, 1);
+        --_ease-4: cubic-bezier(.25, 0, .2, 1);
+        --_ease-5: cubic-bezier(.25, 0, .1, 1);
+        --_ease-in-1: cubic-bezier(.25, 0, 1, 1);
+        --_ease-in-2: cubic-bezier(.50, 0, 1, 1);
+        --_ease-in-3: cubic-bezier(.70, 0, 1, 1);
+        --_ease-in-4: cubic-bezier(.90, 0, 1, 1);
+        --_ease-in-5: cubic-bezier(1, 0, 1, 1);
+        --_ease-out-1: cubic-bezier(0, 0, .75, 1);
+        --_ease-out-2: cubic-bezier(0, 0, .50, 1);
+        --_ease-out-3: cubic-bezier(0, 0, .3, 1);
+        --_ease-out-4: cubic-bezier(0, 0, .1, 1);
+        --_ease-out-5: cubic-bezier(0, 0, 0, 1);
+        --_ease-in-out-1: cubic-bezier(.1, 0, .9, 1);
+        --_ease-in-out-2: cubic-bezier(.3, 0, .7, 1);
+        --_ease-in-out-3: cubic-bezier(.5, 0, .5, 1);
+        --_ease-in-out-4: cubic-bezier(.7, 0, .3, 1);
+        --_ease-in-out-5: cubic-bezier(.9, 0, .1, 1);
+        --_ease-elastic-out-1: cubic-bezier(.5, .75, .75, 1.25);
+        --_ease-elastic-out-2: cubic-bezier(.5, 1, .75, 1.25);
+        --_ease-elastic-out-3: cubic-bezier(.5, 1.25, .75, 1.25);
+        --_ease-elastic-out-4: cubic-bezier(.5, 1.5, .75, 1.25);
+        --_ease-elastic-out-5: cubic-bezier(.5, 1.75, .75, 1.25);
+        --_ease-elastic-in-1: cubic-bezier(.5, -0.25, .75, 1);
+        --_ease-elastic-in-2: cubic-bezier(.5, -0.50, .75, 1);
+        --_ease-elastic-in-3: cubic-bezier(.5, -0.75, .75, 1);
+        --_ease-elastic-in-4: cubic-bezier(.5, -1.00, .75, 1);
+        --_ease-elastic-in-5: cubic-bezier(.5, -1.25, .75, 1);
+        --_ease-elastic-in-out-1: cubic-bezier(.5, -.1, .1, 1.5);
+        --_ease-elastic-in-out-2: cubic-bezier(.5, -.3, .1, 1.5);
+        --_ease-elastic-in-out-3: cubic-bezier(.5, -.5, .1, 1.5);
+        --_ease-elastic-in-out-4: cubic-bezier(.5, -.7, .1, 1.5);
+        --_ease-elastic-in-out-5: cubic-bezier(.5, -.9, .1, 1.5);
+        --_ease-elastic-1: var(--_ease-elastic-out-1);
+        --_ease-elastic-2: var(--_ease-elastic-out-2);
+        --_ease-elastic-3: var(--_ease-elastic-out-3);
+        --_ease-elastic-4: var(--_ease-elastic-out-4);
+        --_ease-elastic-5: var(--_ease-elastic-out-5);
+
+        /************************************
+        *             ANIMATION             *
+        ************************************/
+
+        --_animation-fade-in: fade-in .5s var(--ease-3);
+        --_animation-fade-in-bloom: fade-in-bloom 2s var(--ease-3);
+        --_animation-fade-out: fade-out .5s var(--ease-3);
+        --_animation-fade-out-bloom: fade-out-bloom 2s var(--ease-3);
+        --_animation-scale-up: scale-up .5s var(--ease-3);
+        --_animation-scale-down: scale-down .5s var(--ease-3);
+        --_animation-slide-out-up: slide-out-up .5s var(--ease-3);
+        --_animation-slide-out-down: slide-out-down .5s var(--ease-3);
+        --_animation-slide-out-right: slide-out-right .5s var(--ease-3);
+        --_animation-slide-out-left: slide-out-left .5s var(--ease-3);
+        --_animation-slide-in-up: slide-in-up .5s var(--ease-3);
+        --_animation-slide-in-down: slide-in-down .5s var(--ease-3);
+        --_animation-slide-in-right: slide-in-right .5s var(--ease-3);
+        --_animation-slide-in-left: slide-in-left .5s var(--ease-3);
+        --_animation-shake-x: shake-x .75s var(--ease-out-5);
+        --_animation-shake-y: shake-y .75s var(--ease-out-5);
+        --_animation-shake-z: shake-z 1s var(--ease-in-out-3);
+        --_animation-blink: blink 1s var(--ease-out-3) infinite;
+        --_animation-float: float 3s var(--ease-in-out-3) infinite;
+        --_animation-bounce: bounce 2s var(--ease-squish-2) infinite;
+        --_animation-pulse: pulse 2s var(--ease-out-3) infinite;
     }
+}
+
+@keyframes fade-in {
+  to { opacity: 1 }
+}
+@keyframes fade-in-bloom {
+  0% { opacity: 0; filter: brightness(1) blur(20px) }
+ 10% { opacity: 1; filter: brightness(2) blur(10px) }
+100% { opacity: 1; filter: brightness(1) blur(0) }
+}
+@keyframes fade-out {
+  to { opacity: 0 }
+}
+@keyframes fade-out-bloom {
+100% { opacity: 0; filter: brightness(1) blur(20px) }
+ 10% { opacity: 1; filter: brightness(2) blur(10px) }
+  0% { opacity: 1; filter: brightness(1) blur(0) }
+}
+@keyframes scale-up {
+  to { transform: scale(1.25) }
+}
+@keyframes scale-down {
+  to { transform: scale(.75) }
+}
+@keyframes slide-out-up {
+  to { transform: translateY(-100%) }
+}
+@keyframes slide-out-down {
+  to { transform: translateY(100%) }
+}
+@keyframes slide-out-right {
+  to { transform: translateX(100%) }
+}
+@keyframes slide-out-left {
+  to { transform: translateX(-100%) }
+}
+@keyframes slide-in-up {
+  from { transform: translateY(100%) }
+}
+@keyframes slide-in-down {
+  from { transform: translateY(-100%) }
+}
+@keyframes slide-in-right {
+  from { transform: translateX(-100%) }
+}
+@keyframes slide-in-left {
+  from { transform: translateX(100%) }
+}
+@keyframes shake-x {
+  0%, 100% { transform: translateX(0%) }
+  20% { transform: translateX(-5%) }
+  40% { transform: translateX(5%) }
+  60% { transform: translateX(-5%) }
+  80% { transform: translateX(5%) }
+}
+@keyframes shake-y {
+  0%, 100% { transform: translateY(0%) }
+  20% { transform: translateY(-5%) }
+  40% { transform: translateY(5%) }
+  60% { transform: translateY(-5%) }
+  80% { transform: translateY(5%) }
+}
+@keyframes shake-z {
+  0%, 100% { transform: rotate(0deg) }
+  20% { transform: rotate(-2deg) }
+  40% { transform: rotate(2deg) }
+  60% { transform: rotate(-2deg) }
+  80% { transform: rotate(2deg) }
+}
+@keyframes blink {
+  0%, 100% {
+    opacity: 1
+  }
+  50% {
+    opacity: .5
+  }
+}
+@keyframes float {
+  50% { transform: translateY(-25%) }
+}
+@keyframes bounce {
+  25% { transform: translateY(-20%) }
+  40% { transform: translateY(-3%) }
+  0%, 60%, 100% { transform: translateY(0) }
+}
+@keyframes pulse {
+  50% { transform: scale(.9,.9) }
 }

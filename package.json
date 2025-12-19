@@ -1,0 +1,10 @@
+{
+  "name": "hadithmv",
+  "source": "index.html",
+  "scripts": {
+    "dev": "parcel serve"
+  },
+  "devDependencies": {
+    "parcel": "latest"
+  }
+}
