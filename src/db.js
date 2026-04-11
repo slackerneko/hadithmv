@@ -8,21 +8,12 @@ function openDB() {
     req.onupgradeneeded = (e) => {
       const db = e.target.result
 
-      // suras: keyed by surah number (1-114)
-      // fields: index, name, tname, ename, type, ayas, order, rukus
       if (!db.objectStoreNames.contains('suras')) {
         db.createObjectStore('suras', { keyPath: 'index' })
       }
-
-      // juzs: keyed by juz number (1-30)
-      // fields: index, sura, aya (starting point)
       if (!db.objectStoreNames.contains('juzs')) {
         db.createObjectStore('juzs', { keyPath: 'index' })
       }
-
-      // ayahs: compound key [sura, aya]
-      // fields: sura, aya, juz, text, bismillah?
-      // indexed by sura and juz for efficient filtering
       if (!db.objectStoreNames.contains('ayahs')) {
         const store = db.createObjectStore('ayahs', { keyPath: ['sura', 'aya'] })
         store.createIndex('by_sura', 'sura')
@@ -52,6 +43,19 @@ function parseQuranXml(xml) {
     }
   }
   return ayahs
+}
+
+/** Parse translation XML → Map keyed by "sura:aya" → translation string */
+function parseTranslationXml(xml) {
+  const doc = new DOMParser().parseFromString(xml, 'text/xml')
+  const map = new Map()
+  for (const sura of doc.querySelectorAll('sura')) {
+    const suraIndex = parseInt(sura.getAttribute('index'))
+    for (const aya of sura.querySelectorAll('aya')) {
+      map.set(`${suraIndex}:${aya.getAttribute('index')}`, aya.getAttribute('text'))
+    }
+  }
+  return map
 }
 
 function parseMetadataXml(xml) {
@@ -136,14 +140,20 @@ export async function initQuranData(baseUrl) {
   const db = await getDB()
   if (await isDataLoaded(db)) return
 
-  const [quranXml, metadataXml] = await Promise.all([
+  const [quranXml, metadataXml, translationXml] = await Promise.all([
     fetch(`${baseUrl}data/quran.xml`).then((r) => r.text()),
     fetch(`${baseUrl}data/quran-metadata.xml`).then((r) => r.text()),
+    fetch(`${baseUrl}data/quran-hadithmv.xml`).then((r) => r.text()),
   ])
 
   const rawAyahs = parseQuranXml(quranXml)
   const { suras, juzs } = parseMetadataXml(metadataXml)
-  const ayahs = buildJuzMap(juzs, rawAyahs)
+  const translations = parseTranslationXml(translationXml)
+
+  const ayahs = buildJuzMap(juzs, rawAyahs).map((ayah) => ({
+    ...ayah,
+    dv: translations.get(`${ayah.sura}:${ayah.aya}`) ?? null,
+  }))
 
   await Promise.all([
     bulkPut(db, 'suras', suras),

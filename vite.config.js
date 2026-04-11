@@ -1,10 +1,35 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { quranPagesPlugin } from './vite-plugin-quran-pages.js'
+
+// Derive GitHub Pages origin from the env var GitHub Actions sets automatically.
+// e.g. GITHUB_REPOSITORY="slackerneko/hadithmv" → "https://slackerneko.github.io"
+// Falls back to '' locally — the plugin omits og:url/canonical when empty.
+const SITE_URL = process.env.GITHUB_REPOSITORY
+  ? `https://${process.env.GITHUB_REPOSITORY.split('/')[0]}.github.io`
+  : ''
+
+// Dev only: rewrite /quran/N and /quran/juz/N to serve quran/index.html
+// (browser address bar keeps the real URL; JS reads window.location.pathname)
+// In production, these are real pre-generated static files from quranPagesPlugin.
+const quranHistoryFallback = {
+  name: 'quran-history-fallback',
+  configureServer(server) {
+    server.middlewares.use((req, _res, next) => {
+      if (/\/quran\/(juz\/\d+|\d+)/.test(req.url)) {
+        req.url = req.url.replace(/\/quran\/(juz\/\d+|\d+)[^?]*/, '/quran/index.html')
+      }
+      next()
+    })
+  },
+}
 
 export default defineConfig({
   base: '/hadithmv/',
   plugins: [
+    quranHistoryFallback,
+    quranPagesPlugin({ siteUrl: SITE_URL }),
     VitePWA({
       registerType: 'autoUpdate',
       base: '/hadithmv/',
