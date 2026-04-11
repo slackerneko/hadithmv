@@ -1,0 +1,134 @@
+/* ============================================================
+   Quran page — surah cards, ayah rows, bismillah.
+   Loaded as a second <link> alongside ../src/index.css.
+   ============================================================ */
+
+/* ── Surah card ───────────────────────────────────────────── */
+
+.surah-block {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  margin-bottom: var(--size-5);
+  box-shadow: var(--shadow-2);
+  transition: box-shadow var(--transition-duration-2) var(--ease-3);
+}
+
+.surah-block:hover {
+  box-shadow: var(--shadow-3);
+}
+
+/* ── Surah card header ────────────────────────────────────── */
+
+.surah-header {
+  background: linear-gradient(160deg, var(--brand-light) 0%, #fff 100%);
+  border-bottom: 1px solid var(--border-brand);
+  padding: var(--size-3) var(--size-5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--size-3);
+}
+
+.surah-name {
+  font-family: 'Quran', serif;
+  font-size: 1.5rem;
+  color: var(--brand);
+  direction: rtl;
+}
+
+.surah-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: var(--size-2);
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.surah-meta span {
+  background: var(--surface-card);
+  border: 1px solid var(--border-brand);
+  border-radius: var(--radius-badge);
+  padding: 0.15rem var(--size-2);
+  color: var(--brand);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ── Bismillah ────────────────────────────────────────────── */
+
+.bismillah {
+  text-align: center;
+  font-family: 'Quran', serif;
+  font-size: 2rem;
+  color: var(--brand);
+  padding: var(--size-5) var(--size-5) var(--size-3);
+  direction: rtl;
+  letter-spacing: 0.02em;
+}
+
+/* ── Ayah list ────────────────────────────────────────────── */
+
+.ayahs {
+  padding-block-start: var(--size-1);
+}
+
+.ayah-row {
+  display: flex;
+  flex-direction: column;
+  padding: var(--size-4) var(--size-5);
+  border-top: 1px solid var(--border);
+  gap: var(--size-2);
+  transition: background var(--transition-duration-2) var(--ease-3);
+}
+
+.ayah-row:first-child {
+  border-top: none;
+}
+
+.ayah-row:hover {
+  background: var(--brand-light);
+}
+
+/* ── Ayah Arabic text ─────────────────────────────────────── */
+
+.ayah-arabic {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Quran', serif;
+  font-size: 1.65rem;
+  line-height: 2.2;
+  color: var(--text);
+}
+
+.ayah-marker {
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-inline-start: 0.4em;
+  font-family: 'Amiri', serif;
+}
+
+/* ── Ayah translation ─────────────────────────────────────── */
+
+.ayah-translation {
+  direction: rtl;
+  text-align: right;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border);
+  padding-block-start: var(--size-2);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .surah-header  { padding: var(--size-3) var(--size-4); }
+  .bismillah     { font-size: 1.5rem; padding: var(--size-4) var(--size-4) var(--size-2); }
+  .ayah-row      { padding: var(--size-3) var(--size-4); }
+  .ayah-arabic   { font-size: 1.35rem; }
+  .surah-name    { font-size: 1.25rem; }
+}

@@ -1,0 +1,194 @@
+/* ============================================================
+   Header
+   ============================================================ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: var(--layer-2);
+  background: var(--brand);
+  color: #fff;
+  padding: var(--size-3) var(--size-5);
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+  box-shadow: var(--shadow-3);
+}
+
+header a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color var(--transition-duration-2) var(--ease-3);
+  flex-shrink: 0;
+}
+
+header a:hover {
+  color: #fff;
+}
+
+header h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+
+.content {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: var(--size-5);
+}
+
+/* ============================================================
+   Form controls
+   ============================================================ */
+
+select,
+input[type="number"],
+input[type="text"],
+input[type="search"] {
+  padding: var(--size-2) var(--size-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-badge);
+  background: var(--surface-card);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-duration-2) var(--ease-3),
+    box-shadow   var(--transition-duration-2) var(--ease-3);
+}
+
+select:focus,
+input:focus {
+  outline: none;
+  border-color: var(--brand-mid);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-mid) 15%, transparent);
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+
+.btn {
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--radius-badge);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-duration-2) var(--ease-3);
+  white-space: nowrap;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand-mid);
+  color: var(--brand);
+  background: var(--brand-light);
+}
+
+/* ============================================================
+   Filters bar
+   ============================================================ */
+
+.filters {
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--border);
+  padding: var(--size-3) var(--size-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-3);
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+  min-width: 160px;
+  flex: 1;
+}
+
+.filter-group label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--size-2);
+}
+
+/* ============================================================
+   Status bar
+   ============================================================ */
+
+.status-bar {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: var(--size-4);
+  text-align: center;
+}
+
+/* ============================================================
+   Loading & empty states
+   ============================================================ */
+
+.loading {
+  text-align: center;
+  padding: var(--size-9);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-3);
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: var(--radius-round);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty {
+  text-align: center;
+  padding: var(--size-9);
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 600px) {
+  header        { padding: var(--size-2) var(--size-4); }
+  .filters      { padding: var(--size-2) var(--size-4); }
+  .content      { padding: var(--size-4); }
+  .filter-group { min-width: 130px; }
+}

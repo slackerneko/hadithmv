@@ -1,0 +1,28 @@
+/* ============================================================
+   Brand tokens — built on top of Open Props primitives.
+   postcss-jit-props will inject only the Open Props vars
+   that are actually referenced here.
+   ============================================================ */
+
+:root {
+  /* ── Brand green ──────────────────────────────────────── */
+  --brand:        var(--green-9);   /* ~#14532d — header, primary actions  */
+  --brand-mid:    var(--green-7);   /* ~#15803d — hover states             */
+  --brand-light:  var(--green-1);   /* ~#dcfce7 — tinted card backgrounds  */
+  --brand-border: var(--green-3);   /* ~#86efac — borders on tinted areas  */
+
+  /* ── Accent (gold — no good Open Props match) ─────────── */
+  --accent: #c9a84c;
+
+  /* ── Surfaces & text ──────────────────────────────────── */
+  --text:         var(--gray-9);
+  --text-muted:   var(--gray-6);
+  --surface:      var(--green-0);   /* very light green page background    */
+  --surface-card: #fff;
+  --border:       var(--gray-2);
+  --border-brand: var(--green-2);
+
+  /* ── Shape aliases ────────────────────────────────────── */
+  --radius-card:  var(--radius-3);
+  --radius-badge: var(--radius-2);
+}

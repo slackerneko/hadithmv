@@ -1,0 +1,61 @@
+/* ============================================================
+   Fonts
+   ============================================================ */
+
+@font-face {
+  font-family: 'Dhivehi';
+  src: url('../fonts/merged-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dhivehi';
+  src: url('../fonts/merged-300.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quran';
+  src: url('../fonts/KFGQPC-Uthman-Taha-Naskh-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('../fonts/Amiri-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Dhivehi', system-ui, sans-serif;
+  font-weight: 400;
+  /* Large base for Dhivehi/Arabic script readability */
+  font-size: 1.8rem;
+  background: var(--surface);
+  color: var(--text);
+  min-height: 100dvh;
+}
