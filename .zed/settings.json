@@ -1,0 +1,11 @@
+{
+  "context_servers": {
+    "mcp-server-playwright": {
+      "settings": {
+        "browser": "chromium",
+        "headless": false,
+        "vision": false
+      }
+    }
+  }
+}
